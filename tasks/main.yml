@@ -1,0 +1,20 @@
+---
+
+- name: install nodejs
+  apt: pkg=nodejs-legacy default_release=wheezy-backports state=present
+
+- name: install npm
+  shell: curl https://www.npmjs.org/install.sh | bash creates=/usr/bin/npm
+
+- name: get temp directory
+  command: npm -g config get tmp
+  register: npm_tmp_dir
+  changed_when: False
+
+- name: set temp directory
+  command: npm -g config set tmp /tmp
+  when: npm_tmp_dir.stdout != '/tmp'
+
+- name: remove old temp directory
+  file: "path={{ npm_tmp_dir.stdout }} state=absent"
+  when: npm_tmp_dir.stdout != '/tmp'
