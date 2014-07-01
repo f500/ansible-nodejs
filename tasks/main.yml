@@ -1,7 +1,12 @@
 ---
+# Install logstash
+- include: Debian.yml
+  when: ansible_distribution in ['Debian']
 
-- name: install nodejs
-  apt: pkg=nodejs-legacy default_release=wheezy-backports state=present
+# Install logstash
+- include: Ubuntu.yml
+  when: ansible_distribution in ['Ubuntu']
+
 
 - name: install npm
   shell: curl https://www.npmjs.org/install.sh | bash creates=/usr/bin/npm
