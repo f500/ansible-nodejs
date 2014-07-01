@@ -1,9 +1,9 @@
 ---
-# Install logstash
+# Install nodejs (Debian)
 - include: Debian.yml
   when: ansible_distribution in ['Debian']
 
-# Install logstash
+# Install nodejs (Ubuntu)
 - include: Ubuntu.yml
   when: ansible_distribution in ['Ubuntu']
 
