@@ -1,0 +1,4 @@
+---
+
+- name: install nodejs (Debian)
+  apt: pkg=nodejs-legacy default_release=wheezy-backports state=present
