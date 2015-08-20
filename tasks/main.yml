@@ -9,7 +9,7 @@
 
 
 - name: install npm
-  shell: curl https://www.npmjs.org/install.sh | bash creates=/usr/bin/npm
+  shell: curl -L https://www.npmjs.com/install.sh | bash creates=/usr/bin/npm
 
 - name: get temp directory
   command: npm -g config get tmp
