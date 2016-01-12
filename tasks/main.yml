@@ -1,7 +1,9 @@
 ---
 # Install nodejs (Debian)
-- include: Debian.yml
-  when: ansible_distribution in ['Debian']
+- include: Debian-wheezy.yml
+  when: (ansible_distribution == "Debian" and ansible_distribution_release == "wheezy")
+- include: Debian-jessie.yml
+  when: (ansible_distribution == "Debian" and ansible_distribution_release == "jessie")
 
 # Install nodejs (Ubuntu)
 - include: Ubuntu.yml
