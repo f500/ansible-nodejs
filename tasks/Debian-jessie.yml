@@ -1,4 +1,0 @@
----
-
-- name: install nodejs (Debian-jessie)
-  apt: pkg=nodejs-legacy default_release=jessie-backports state=present

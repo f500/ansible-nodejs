@@ -1,24 +1,33 @@
 Nodejs
-========
+======
 
-Install Nodejs and the NPM package manager
+Install Node.js and NPM
 
 Requirements
 ------------
 
-Debian Wheezy with the package python-pycurl and python-software-properties installed.
+Debian Wheezy/Jessie/Stretch or Ubuntu Precise/Trusty/Xenial.
+
+Role Variables
+--------------
+
+Specify the version of Node.js you want:
+
+    nodejs_version: 6.x
+
+See https://github.com/nodesource/distributions
 
 Example Playbook
 -------------------------
 
     - hosts: servers
       roles:
-         - { role: f500.nodejs }
+        - { role: f500.nodejs }
 
 License
 -------
 
-LGPL
+LGPL-3.0
 
 Author Information
 ------------------
