@@ -1,7 +1,7 @@
 ---
 
 - name: Add the nodesource.com trusted key
-  ansible.builtin.url:
+  ansible.builtin.get_url:
     url: https://keyserver.ubuntu.com/pks/lookup?op=get&fingerprint=on&search=0x1655A0AB68576280
     dest: /etc/apt/trusted.gpg.d/nodesource.gpg
     mode: 0644
