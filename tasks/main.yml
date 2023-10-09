@@ -3,9 +3,13 @@
 - name: Add the nodesource.com trusted key
   ansible.builtin.get_url:
     url: https://keyserver.ubuntu.com/pks/lookup?op=get&fingerprint=on&search=0x1655A0AB68576280
-    dest: /etc/apt/trusted.gpg.d/nodesource.gpg
+    dest: /etc/apt/trusted.gpg.d/nodesource
     mode: 0644
     force: yes
+
+- name: dearmor gpg key
+  ansible.builtin.shell: gpg --dearmor /etc/apt/trusted.gpg.d/nodesource
+  become: yes
 
 - name: Add the nodesource.com repository
   apt_repository:
